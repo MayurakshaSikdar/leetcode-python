@@ -43,6 +43,3 @@ class Solution:
                 else:
                     return result
         return result
-
-a = [-4,2,2,3,3,3]
-print(Solution().threeSumClosest(a, 0))
