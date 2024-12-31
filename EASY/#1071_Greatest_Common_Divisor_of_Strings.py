@@ -21,22 +21,16 @@
 # str1 and str2 consist of English uppercase letters.
 
 
-class Solution:
-    def mergeAlternately(self, word1: str, word2: str) -> str:
-        n1 = len(word1)
-        n2 = len(word2)
-        common = min(n1, n2)
-        i = 0
-        answer = ''
-        while i < common:
-            answer += word1[i]
-            answer += word2[i]
-            i += 1
-        if i < n1:
-            answer += word1[i:]
-        if i < n2:
-            answer += word2[i:]
-        return answer
+class Solution(object):
+    def gcdOfStrings(self, str1, str2):
+        n1, n2 = len(str1), len(str2)
+        smaller = min(n1, n2)
+        def check_divisor(n):
+            if n1%n == 1 or n2%n == 1:
+                return False
+            return (str1[:n] * (n1//n)) == str1 and (str1[:n] * (n2//n)) == str2
 
-
-print(Solution().mergeAlternately('abcd', 'pq'))
+        for i in range(smaller, 0, -1):
+            if check_divisor(i):
+                return str1[:i]
+        return ''
