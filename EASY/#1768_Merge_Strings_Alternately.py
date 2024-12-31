@@ -49,6 +49,3 @@ class Solution:
         if i < n2:
             answer += word2[i:]
         return answer
-
-
-print(Solution().mergeAlternately('abcd', 'pq'))
