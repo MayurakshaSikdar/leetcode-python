@@ -36,7 +36,3 @@ class Solution:
             return ' '.join(data[::-1])
         else:
             return ""
-
-print(Solution().reverseWords("a good   example"))
-print(Solution().reverseWords("  hello world  "))
-print(Solution().reverseWords("the sky is blue"))
