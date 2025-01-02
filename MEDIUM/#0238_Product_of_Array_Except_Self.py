@@ -20,16 +20,17 @@
 # Follow up: Can you solve the problem in O(1) extra space complexity?
 # (The output array does not count as extra space for space complexity analysis.)
 
+from typing import List
 
 class Solution:
-    def reverseWords(self, s: str) -> str:
-        data = s.strip().split(' ')
-        if data:
-            data = [_ for _ in data if _]
-            return ' '.join(data[::-1])
-        else:
-            return ""
+    def productExceptSelf(self, nums: List[int]) -> List[int]:
+        n = len(nums)
+        pre = [1] * n
+        suf = [1] * n
 
-print(Solution().reverseWords("a good   example"))
-print(Solution().reverseWords("  hello world  "))
-print(Solution().reverseWords("the sky is blue"))
+        for i in range(1, n):
+            pre[i] = pre[i - 1] * nums[i - 1]
+        for i in range(n - 2, -1, -1):
+            suf[i] = suf[i + 1] * nums[i + 1]
+
+        return [pre[i] * suf[i] for i in range(n)]
