@@ -23,9 +23,11 @@ from typing import List
 
 class Solution:
     def canPlaceFlowers(self, flowerbed: List[int], n: int) -> bool:
-        n = len(flowerbed)
-        for i in range(n):
-            if flowerbed[i] == 0 and (i == 0 or flowerbed[i-1] == 0) and (i == n - 1 or flowerbed[i+1] == 0):
+        _len = len(flowerbed)
+        for i in range(_len):
+            if flowerbed[i] == 0 and (i == 0 or flowerbed[i-1] == 0) and (i == _len - 1 or flowerbed[i+1] == 0):
                 flowerbed[i] = 1
                 n -= 1
-        return n == 0
+        return n <= 0
+
+print(Solution().canPlaceFlowers([1,0,0,0,1], 1))
