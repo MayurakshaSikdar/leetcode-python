@@ -29,5 +29,3 @@ class Solution:
                 flowerbed[i] = 1
                 n -= 1
         return n <= 0
-
-print(Solution().canPlaceFlowers([1,0,0,0,1], 1))
