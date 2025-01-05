@@ -36,5 +36,3 @@ class Solution:
 				j += 1
 			i += 1
 		return i-j
-
-print(Solution().longestOnes([1,1,1,0,0,0,1,1,1,1,0], 2))
