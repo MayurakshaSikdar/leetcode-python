@@ -51,6 +51,3 @@ class Solution:
                 i += 1
                 j -= 1
         return counter
-
-
-print(Solution().maxOperations([3,1,3,4,3], k = 6))
