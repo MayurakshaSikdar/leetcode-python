@@ -16,8 +16,8 @@
 # Output: 1
 
 # Constraints:
-# 1 <= nums.length <= 3 * 104
-# -3 * 104 <= nums[i] <= 3 * 104
+# 1 <= nums.length <= 3 * 10^4
+# -3 * 10^4 <= nums[i] <= 3 * 10^4
 # Each element in the array appears twice except for one element which appears only once.
 
 
@@ -25,14 +25,7 @@ from typing import List
 
 class Solution:
     def singleNumber(self, nums: List[int]) -> int:
-        if nums == None or nums == []:
-            return 0
-        result = []
+        ans = 0
         for i in nums:
-            if i in result:
-                result.remove(i)
-            else:
-                result.append(i)
-        if result:
-            return result.pop()
-        return 0
+            ans = i^ans
+        return ans
