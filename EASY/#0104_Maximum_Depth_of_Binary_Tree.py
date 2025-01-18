@@ -33,3 +33,50 @@ class Solution:
             if leftD < rightD:
                 return rightD + 1
             return leftD + 1
+
+
+
+
+def insert(root, val):
+    if not root:
+        return TreeNode(val)
+    if val < root.val:
+        root.left = insert(root.left, val)
+    else:
+        root.right = insert(root.right, val)
+    return root
+
+def create_bst(values):
+    if not values:
+        return None
+
+    root = TreeNode(values[0])
+    queue = [root]
+    i = 1
+
+    while i < len(values):
+        node = queue.pop(0)
+
+        if values[i] is not None:
+            node.left = TreeNode(values[i])
+            queue.append(node.left)
+        i += 1
+
+        if i < len(values) and values[i] is not None:
+            node.right = TreeNode(values[i])
+            queue.append(node.right)
+        i += 1
+
+    return root
+
+# Create the BST
+root = create_bst([3, 9, 20, None, None, 15, 7])
+
+# Print the BST (in-order traversal)
+def inorder(root):
+    if root:
+        print(root.val, end=" ")
+        inorder(root.left)
+        inorder(root.right)
+
+inorder(root)
