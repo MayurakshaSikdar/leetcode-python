@@ -25,7 +25,6 @@ class Solution:
         heap = nums[:k]
         heapq.heapify(heap)
         for num in nums[k:]:
-            print(heap)
             if num > heap[0]:
                 heapq.heappop(heap)
                 heapq.heappush(heap, num)
