@@ -39,5 +39,3 @@ class Solution:
                 if int_c == 0 and int_a == int_b == 1:
                     counter += 1
         return counter
-
-print(Solution().minFlips(a = 1, b = 2, c = 3))
