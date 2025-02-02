@@ -38,7 +38,7 @@ class Solution:
         def dfs(v):
             visit.add(v)
             for j in range(n):
-                if j not in visit and isConnected[i][j] == 1:
+                if j not in visit and isConnected[v][j] == 1:
                     dfs(j)
         
         n = len(isConnected)
