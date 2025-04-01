@@ -42,11 +42,19 @@ from typing import List
 class Solution:
     def removeDuplicates(self, nums: List[int]) -> int:
         if len(nums) < 2:
-            return nums
-        k = 2  # Start from the third element
-        
-        for i in range(2, len(nums)):
-            if nums[i] != nums[k-2]:
-                nums[k] = nums[i]
-                k += 1
-        return k
+            return len(nums)
+
+        index = 1
+        occurance = 1
+
+        for i in range(1, len(nums)):
+            if nums[i] == nums[i-1]:
+                occurance += 1
+            else:
+                occurance = 1
+
+            if occurance <= 2:
+                nums[index] = nums[i]
+                index += 1
+
+        return index
