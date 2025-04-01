@@ -40,19 +40,13 @@ class Solution:
         """
         Do not return anything, modify nums1 in-place instead.
         """
-        if nums2 == []:
-            nums1 = nums1[:m]
-        i = j = 0
-        while j < n and i < m:
-            if nums1[i] > nums2[j]:
-                nums1.insert(i, nums2[j])
-                m += 1
+        if nums2:
+            i = j = 0
+            while j < n and i < m+n:
+                if nums1[i] > nums2[j]:
+                    nums1.insert(i, nums2[j])
+                    j += 1
+                i += 1
+            while j<n:
+                nums1.append(nums2[j])
                 j += 1
-            i += 1
-        while j<n:
-            nums1.insert(i, nums2[j])
-            m += 1
-            i += 1
-            j += 1
-        while len(nums1) != m:
-            nums1.pop()
