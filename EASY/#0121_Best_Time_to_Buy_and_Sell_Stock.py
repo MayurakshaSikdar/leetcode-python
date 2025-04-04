@@ -24,13 +24,13 @@
 from typing import List
 
 class Solution:
-    def maxProfit(self, prices: List[int]) -> int:
+    def max_profit(self, prices: List[int]) -> int:
         if prices == [] or prices == None:
             return 0
-        minPrice = max(prices)
-        maxProfit = 0
+        min_price = max(prices)
+        max_profit = 0
         for p in prices:
-            minPrice = min(minPrice, p)
-            if p - minPrice > maxProfit:
-                maxProfit = p - minPrice
-        return maxProfit
+            min_price = min(min_price, p)
+            if p - min_price > max_profit:
+                max_profit = p - min_price
+        return max_profit
