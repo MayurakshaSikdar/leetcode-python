@@ -32,7 +32,3 @@ class Solution:
             if elements.get(__max, 0) < elements[n]:
                 __max = n
         return __max
-        
-
-print(Solution().majorityElement(nums = [3,2,3]))
-print(Solution().majorityElement(nums = [2,2,1,1,1,2,2]))
