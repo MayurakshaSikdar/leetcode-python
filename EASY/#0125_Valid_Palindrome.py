@@ -26,19 +26,8 @@
 
 class Solution:
     def isPalindrome(self, s: str) -> bool:
-        start, end = 0, len(s) - 1
-        if len(s.strip()) <= 1:
-            return True
-        s = s.lower()
-        while start <= end:
-            chr_start, chr_end = s[start], s[end]
-            if not chr_start.isalnum():
-                start += 1
-                continue
-            if not chr_end.isalnum():
-                end -= 1
-                continue
-            if chr_start != chr_end:
-                break
-            start, end = start + 1, end - 1
-        return start >= end
+        is_palin = ""
+        for i in s.lower():
+            if i.isalnum():
+                is_palin += i
+        return is_palin[:] == is_palin[::-1]
